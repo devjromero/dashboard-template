@@ -1,8 +1,10 @@
+import {FC, LazyExoticComponent} from "react";
+
 declare type AppRoute = {
     name:string,
     path: string,
     exact: boolean,
-    component: React.FunctionComponent,
+    component: LazyExoticComponent<FC<any>>,
     icon?: React.FunctionComponent,
     isPrivate: boolean,
 
