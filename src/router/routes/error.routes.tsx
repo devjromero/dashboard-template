@@ -1,11 +1,12 @@
 import AppRoute from "../../domain/types/AppRoute.type";
+import {lazy} from "react";
 
 const errorRoutes:AppRoute[] = [
     {
         name:'Not found',
         path:'*',
         exact: false,
-        component:()=><h1>404 private</h1>,
+        component:lazy(()=>import('../../pages/NotFound/PrivateNotFound')),
         icon:()=><h1>icon</h1>,
         isPrivate:true
     },
@@ -13,7 +14,7 @@ const errorRoutes:AppRoute[] = [
         name:'Not found',
         path:'*',
         exact: false,
-        component:()=><h1>404 public</h1>,
+        component:lazy(()=>import('../../pages/NotFound/PublicNotFound')),
         icon:()=><h1>icon</h1>,
         isPrivate:false
     },
