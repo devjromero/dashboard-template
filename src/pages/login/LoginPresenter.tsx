@@ -1,15 +1,16 @@
-import {useDispatch} from "react-redux";
-import actions from "../../store/actions";
+import LoginFormPresenter from "../../components/login/LoginForm.presenter";
+import {Formik} from 'formik';
+import {FormPropertiesType} from "../../domain/types/FormProperties.type";
 
 export const LoginPresenter: React.FC<any> = props => {
-    const dispatch = useDispatch();
     return (
-        <>
-            <button className={'p-2 rounded bg-blue-300'}
-                    onClick={(e)=>dispatch(actions.tryAuthenticateUser)}
-            >
-                Dispatch
-            </button>
-        </>
+        <Formik
+            initialValues   = {{email:'',password:''}}
+            onSubmit        = {(e)=>{}}
+        >
+            {RenderContainer}
+        </Formik>
     );
 };
+
+const RenderContainer = (formProps: FormPropertiesType) => (<LoginFormPresenter {...formProps}/>);

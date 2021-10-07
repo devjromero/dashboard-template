@@ -1,7 +1,8 @@
+import labels from "./labels";
 
 const ES = {
     translation: {
-        "welcome": "bienvenido"
+        ...labels
     }
 }
 export default ES;
