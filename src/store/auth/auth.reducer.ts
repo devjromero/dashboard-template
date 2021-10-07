@@ -1,4 +1,5 @@
 import Action from "../../domain/types/ActionReducer.type";
+import actions from "./auth.actions";
 
 export type State = {
     isAuthenticated: boolean,
@@ -12,6 +13,11 @@ const initialState: State = {
 }
 const authReducer = (state: State = initialState, action: Action) => {
     switch (action.type){
+        case actions.authenticateUser.type:
+            return {
+                ...state,
+                isAuthenticated: true,
+            }
         default: return state;
     }
 }

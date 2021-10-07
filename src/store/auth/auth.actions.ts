@@ -1,7 +1,7 @@
-import ActionReducerType from "../../domain/types/ActionReducer.type";
 
-const authActions:ActionReducerType[] = [
-
-];
+const authActions = {
+    tryAuthenticateUser: {type:'[auth] tryAuthenticateUser'},
+    authenticateUser: {type:'[auth] authenticateUser'},
+};
 
 export default authActions;
