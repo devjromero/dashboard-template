@@ -2,6 +2,7 @@ import BackgroundImage from "./BackgroundImage";
 import LoginForm from "./LoginForm";
 import {FormInputsType} from "../../domain/types/login/FormInputs.type";
 import {FormikValues} from "formik";
+import LoginLanguageSwitcher from "./LoginLanguageSwitcher";
 type Props = {
     values: FormInputsType | FormikValues,
     handleChange:   any,
@@ -12,8 +13,8 @@ type Props = {
 
 const LoginFormPresenter:React.FC<Props> = props => {
     return (
-        <div className={'h-screen w-screen flex flex-col lg:flex-row'}>
-            {/*<LanguageSwitcher />*/}
+        <div className={'relative h-screen w-screen flex flex-col lg:flex-row'}>
+            <LoginLanguageSwitcher />
             <BackgroundImage />
             <LoginForm {...props}/>
         </div>

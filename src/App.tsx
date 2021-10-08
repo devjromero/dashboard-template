@@ -7,7 +7,7 @@ function App() {
     initLanguageResources();
     return (
         <Provider store={store}>
-            <div className={'w-screen h-screen'}>
+            <div className={'w-screen h-screen font-montserrat'}>
                 {/*<Suspense fallback={Loading}>*/}
                     <AppRouter/>
                 {/*</Suspense>*/}
