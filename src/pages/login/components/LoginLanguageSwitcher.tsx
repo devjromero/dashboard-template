@@ -1,4 +1,4 @@
-import LanguageSwitcher from "../languageSwitcher/LanguageSwitcher";
+import LanguageSwitcher from "../../../components/languageSwitcher/LanguageSwitcher";
 
 const LoginLanguageSwitcher:React.FC<any> = () => {
     return (<LanguageSwitcher/>);

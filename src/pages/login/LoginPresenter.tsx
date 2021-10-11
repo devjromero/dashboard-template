@@ -1,16 +1,24 @@
-import LoginFormPresenter from "../../components/login/LoginForm.presenter";
-import {Formik} from 'formik';
-import {FormPropertiesType} from "../../domain/types/FormProperties.type";
-
-export const LoginPresenter: React.FC<any> = props => {
+import { FormikValues} from 'formik';
+import LoginLanguageSwitcher from "./components/LoginLanguageSwitcher";
+import BackgroundImage from "./components/BackgroundImage";
+import LoginFormPresenter from "./components/LoginForm.presenter";
+import {FormInputsType} from "../../domain/types/login/FormInputs.type";
+import LoginForm from "./components/LoginForm";
+type Props = {
+    values: FormInputsType | FormikValues,
+    handleChange:   any,
+    handleSubmit:   any,
+    errors:         any,
+    touched:        any,
+    isSubmitting: boolean
+}
+export const LoginPresenter: React.FC<Props> = props => {
     return (
-        <Formik
-            initialValues   = {{email:'',password:''}}
-            onSubmit        = {(e)=>{}}
-        >
-            {RenderContainer}
-        </Formik>
+        <div className={'relative h-screen w-screen flex flex-col lg:flex-row'}>
+            <LoginLanguageSwitcher />
+            <BackgroundImage />
+            <LoginForm {...props}/>
+        </div>
     );
 };
 
-const RenderContainer = (formProps: FormPropertiesType) => (<LoginFormPresenter {...formProps}/>);

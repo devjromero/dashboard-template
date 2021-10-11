@@ -1,7 +1,7 @@
 import {Provider} from 'react-redux';
 import AppRouter from "./AppRouter";
 import store from "./store";
-import initLanguageResources from "./utils/languagues/initLanguageResources";
+import initLanguageResources from "./utils/creators/languagues/initLanguageResources";
 
 function App() {
     initLanguageResources();

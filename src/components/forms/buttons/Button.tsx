@@ -1,14 +1,21 @@
+import classNames from "classnames";
+
 type Props = {
     type?: string,
-    onClick: any
+    onClick: any,
+    disabled?: boolean
 }
 
 const Button: React.FC<Props> = props => {
-
+    //opacity-50
     return (
         <button
-            className={`w-full  py-2 px-2  rounded shadow-md ${getStyle(props.type)}`}
+            disabled={props.disabled}
+            className={classNames(`w-full  py-2 px-2  rounded shadow-md ${getStyle(props.type)}`,{
+                'opacity-50 cursor-not-allowed': props.disabled,
+            })}
             onClick={props.onClick}
+            type={'submit'}
         >
             {props.children}
         </button>

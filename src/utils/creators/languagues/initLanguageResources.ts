@@ -1,6 +1,6 @@
 import i18n from "i18next";
 import {initReactI18next} from "react-i18next";
-import langResources from "../../resources/lang/langResources";
+import langResources from "../../../resources/lang/langResources";
 
 const initLanguageResources = () => {
     i18n

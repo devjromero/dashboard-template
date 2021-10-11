@@ -1,12 +1,11 @@
 import {FC, useEffect, useState} from "react";
 import FlagMex from './../../resources/assets/media/flag_mex.jpg';
 import FlagUSA from './../../resources/assets/media/flag_usa.jpg';
-import useTranslation from "../../utils/hooks/translation/useTranslation";
+import useTranslation from "../../hooks/translation/useTranslation";
+import Language from "../../domain/types/Language.type";
+import LanguageSwitcherPresenter from "./LanguageSwitcher.presenter";
 
-type Language = {
-    id: string,
-    flagImage: any,
-}
+
 const languages:Language[] = [
     {
         id: 'es',
@@ -32,42 +31,16 @@ const LanguageSwitcher:FC<any> = () => {
         config.changeLanguage(id);
     }
     return (
-        <>
-            <div className="absolute z-10 w-full flex justify-end ">
-
-                <div className="dropdown inline-block relative">
-                    <button className="py-2 px-4 rounded inline-flex flex items-center ">
-                        <Option {...selectedLanguage} lang={t(selectedLanguage.id)}/>
-                    </button>
-                    <ul className="dropdown-menu absolute hidden pt-1">
-                        {
-                            languages.map((lang: Language,key: number)=>(
-                                <li key={`langOption-${key}`} onClick={(e:any)=>handleSelectLanguage(lang.id)}>
-                                    <Option {...lang} lang={t(lang.id)}/>
-                                </li>
-                            ))
-                        }
-
-                    </ul>
-                </div>
-
-            </div>
-        </>
+        <LanguageSwitcherPresenter
+            selectedLanguage={selectedLanguage}
+            languages={languages}
+            handleSelectLanguage={handleSelectLanguage}
+            t={t}
+        />
     );
 }
 
-type OptionProp = {
-    id: string,
-    lang:string,
-    flagImage: any,
-}
-const Option:FC<OptionProp> = props => {
-    return (
-        <div className={'flex gap-2 mb-2'}>
-            <img src={props.flagImage} alt={props.lang} className={'h-5 w-auto '}/>
-            <p>{props.lang}</p>
-        </div>
-    );
-}
+
+
 
 export default LanguageSwitcher;

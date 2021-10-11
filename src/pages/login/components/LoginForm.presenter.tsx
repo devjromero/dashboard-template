@@ -1,12 +1,12 @@
 import {FC, useEffect} from "react";
-import LogoImage from './../../resources/assets/media/logo.svg';
-import useTranslation from "../../utils/hooks/translation/useTranslation";
-import InputGroup from "../forms/inputGroup/InputGroup";
-import InputText from "../forms/inputs/InputText";
-import {FormInputsType} from "../../domain/types/login/FormInputs.type";
+import LogoImage from '../../../resources/assets/media/logo.svg';
+import useTranslation from "../../../hooks/translation/useTranslation";
+import InputGroup from "../../../components/forms/inputGroup/InputGroup";
+import InputText from "../../../components/forms/inputs/InputText";
+import {FormInputsType} from "../../../domain/types/login/FormInputs.type";
 import {FormikValues} from "formik";
-import InputPassword from "../forms/inputs/InputPassword";
-import Button from "../forms/buttons/Button";
+import InputPassword from "../../../components/forms/inputs/InputPassword";
+import Button from "../../../components/forms/buttons/Button";
 import {Link} from 'react-router-dom';
 type Props = {
     values: FormInputsType | FormikValues,
@@ -14,15 +14,15 @@ type Props = {
     handleSubmit:   any,
     errors:         any,
     touched:        any,
+    isSubmitting:   boolean
 }
 
-const LoginForm:FC<Props> = props => {
+const LoginFormPresenter:FC<Props> = props => {
     const { handleChange, values } = props;
     const {t} = useTranslation();
-    // const capsLock = useCapsLock();
-    // useEffect(() => {
-    //     console.log(capsLock)
-    // }, [capsLock]);
+    useEffect(() => {
+        console.log(props.errors)
+    }, [props.errors]);
 
     return (
         <div className={'relative z-1 h-screen w-full flex flex-col p-4 justify-center lg:w-1/3 gap-1 '}>
@@ -37,7 +37,11 @@ const LoginForm:FC<Props> = props => {
         </div>
         {/*END Header*/}
         {/*START FORM*/}
-        <form action="" className={'w-full flex flex-col gap-4 justify-start flex-1'}>
+        <form
+            action=""
+            className={'w-full flex flex-col gap-4 justify-start flex-1'}
+            onSubmit={props.handleSubmit}
+        >
 
             <InputGroup
                 label={t('label.email')}
@@ -62,7 +66,13 @@ const LoginForm:FC<Props> = props => {
             </InputGroup>
             <p className={'text-xs lg:text-md'}>{t('label.forgotPassword?')}</p>
 
-            <Button onClick={(e:any)=>{}}>{t('label.doLogin')}</Button>
+            <Button
+                disabled={props.isSubmitting}
+                onClick={(e:any)=>{}}
+            >
+                {t('label.doLogin')}
+                {props.isSubmitting && <span>submitting</span>}
+            </Button>
             <Button
                 type={'secondary'}
                 onClick={(e:any)=>{}}
@@ -81,4 +91,4 @@ const LoginForm:FC<Props> = props => {
     );
 }
 
-export default LoginForm;
+export default LoginFormPresenter;
