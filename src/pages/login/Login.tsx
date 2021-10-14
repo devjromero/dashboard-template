@@ -4,13 +4,20 @@ import {Formik, FormikValues} from "formik";
 import {FormPropertiesType} from "../../domain/types/FormProperties.type";
 import LoginSchema from "../../domain/schemas/Login.schema";
 import useTranslation from "../../hooks/translation/useTranslation";
+import {loginWithCredentials} from "../../services/login/loginWithCredentials/loginWithCredentials";
+import {FormInputsType} from "../../domain/types/login/FormInputs.type";
+import {useDispatch} from "react-redux";
+import actions from "../../store/actions";
 
 const Login:FC<any> = () => {
     const {t} = useTranslation();
-    const onSubmit = async (e:FormikValues) => {
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        console.log('fin')
+    const dispatch = useDispatch();
+
+    const onSubmit = async (values: FormikValues&FormInputsType) => {
+        // loginWithCredentials(values).then()
+        dispatch(actions.authenticateUser);
     }
+
     return (
         <Formik
             initialValues   = {{email:'',password:''}}

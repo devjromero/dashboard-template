@@ -4,7 +4,7 @@ import {lazy} from "react";
 const loginRoutes:AppRoute[] = [
     {
         name:'Login',
-        path:'/login',
+        path:'/',
         exact: true,
         component:lazy(()=>import('./../../pages/login/Login')),
         icon:()=><h1>icon</h1>,

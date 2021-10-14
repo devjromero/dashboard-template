@@ -2,7 +2,7 @@ import {FC} from "react";
 
 const ProfilePresenter:FC<any> = () => {
     return (
-        <ProfilePresenter/>
+        <h1>Profile Page</h1>
     );
 }
 export default ProfilePresenter;
