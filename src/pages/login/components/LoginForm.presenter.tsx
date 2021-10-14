@@ -8,6 +8,7 @@ import {FormikValues} from "formik";
 import InputPassword from "../../../components/forms/inputs/InputPassword";
 import Button from "../../../components/forms/buttons/Button";
 import {Link} from 'react-router-dom';
+import {Spinner} from "../../../components/Spinner/Spinner";
 type Props = {
     values: FormInputsType | FormikValues,
     handleChange:   any,
@@ -45,33 +46,41 @@ const LoginFormPresenter:FC<Props> = props => {
 
             <InputGroup
                 label={t('label.email')}
+                error={props.errors?.email}
             >
                 <InputText
                     name        = {'email'}
                     value       = {values.email}
                     onChange    = {handleChange}
                     placeholder = {t('label.email.example')}
+                    isAnError={!!props.errors?.email}
                 />
             </InputGroup>
 
             <InputGroup
                 label={t('label.password')}
+                error={props.errors?.password}
             >
                 <InputPassword
                     name        = {'password'}
                     value       = {values.password}
                     onChange    = {handleChange}
                     placeholder = {t('shh!!!')}
+                    isAnError={!!props.errors?.password}
                 />
             </InputGroup>
             <p className={'text-xs lg:text-md'}>{t('label.forgotPassword?')}</p>
+            {/*<p className={'animate-spin bg-red-400 w-10'}>hola</p>*/}
 
             <Button
                 disabled={props.isSubmitting}
                 onClick={(e:any)=>{}}
             >
-                {t('label.doLogin')}
-                {props.isSubmitting && <span>submitting</span>}
+                {
+                    props.isSubmitting
+                        ? <Spinner/>
+                        :t('label.doLogin')
+                }
             </Button>
             <Button
                 type={'secondary'}

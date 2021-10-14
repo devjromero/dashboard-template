@@ -1,6 +1,5 @@
 import getConfig from "./axios";
 
-const api = () => {
-    return getConfig();
-}
-export default api();
+const api = getConfig();
+
+export default api;

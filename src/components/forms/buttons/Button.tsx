@@ -11,7 +11,7 @@ const Button: React.FC<Props> = props => {
     return (
         <button
             disabled={props.disabled}
-            className={classNames(`w-full  py-2 px-2  rounded shadow-md ${getStyle(props.type)}`,{
+            className={classNames(`w-full  flex justify-center py-2 px-2  rounded shadow-md ${getStyle(props.type)}`,{
                 'opacity-50 cursor-not-allowed': props.disabled,
             })}
             onClick={props.onClick}

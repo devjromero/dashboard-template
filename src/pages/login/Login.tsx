@@ -8,7 +8,6 @@ import useTranslation from "../../hooks/translation/useTranslation";
 const Login:FC<any> = () => {
     const {t} = useTranslation();
     const onSubmit = async (e:FormikValues) => {
-        // console.log(e);
         await new Promise(resolve => setTimeout(resolve, 1000))
         console.log('fin')
     }
@@ -28,7 +27,6 @@ const Login:FC<any> = () => {
     );
 }
 const RenderContainer = (formProps: FormPropertiesType) => {
-    console.log(formProps)
-return <LoginPresenter {...formProps}/>
+    return <LoginPresenter {...formProps}/>
 };
 export default Login
