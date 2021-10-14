@@ -1,10 +1,10 @@
 import {FC} from "react";
 import {BrowserRouter} from "react-router-dom";
 import {Routes} from "./router";
-import DashboardContainer from "./core-ui/layout/dashboard/DashboardContainer";
 // import useTranslation from "./utils/hooks/translation/useTranslation";
 import {useSelector} from "react-redux";
 import {getIsAuthenticated} from "./store/auth/auth.selectors";
+import DashboardContainer from "./components/dashboard/DashboardContainer";
 const AppRouter:FC<any> = () => {
     const isAuthenticated = useSelector(getIsAuthenticated);
     return (
