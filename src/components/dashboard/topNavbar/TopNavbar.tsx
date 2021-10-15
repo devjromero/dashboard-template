@@ -1,7 +1,7 @@
 import CommonPropsType from "../CommonProps.type";
 import {AiOutlineShoppingCart, GiHamburgerMenu} from "react-icons/all";
 import {UserMenu} from "../userMenu/UserMenu";
-import LanguageSwitcher from './../../languageSwitcher/LanguageSwitcher'
+import {LanguageSwitcherV2} from "../../languageSwitcher/LanguageSwitcherV2";
 export const TopNavbar: React.FC<CommonPropsType> = props => {
     return (
         <div className={'w-full p-4 sticky top-0'}>
@@ -22,11 +22,9 @@ export const TopNavbar: React.FC<CommonPropsType> = props => {
                             className={'cursor-pointer block'}
                         />
                     </Item>
-
                     <Item>
-
+                        <LanguageSwitcherV2/>
                     </Item>
-
                 </div>
             </div>
         </div>

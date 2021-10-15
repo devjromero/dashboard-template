@@ -7,16 +7,18 @@ const errorRoutes:AppRoute[] = [
         path:'*',
         exact: false,
         component:lazy(()=>import('../../pages/NotFound/PrivateNotFound')),
-        icon:()=><h1>icon</h1>,
-        isPrivate:true
+        icon:<h1>icon</h1>,
+        isPrivate:true,
+        noShowInMenu:true
     },
     {
         name:'Not found',
         path:'*',
         exact: false,
         component:lazy(()=>import('../../pages/NotFound/PublicNotFound')),
-        icon:()=><h1>icon</h1>,
-        isPrivate:false
+        icon:<h1>icon</h1>,
+        isPrivate:false,
+        noShowInMenu:true
     },
 ];
 

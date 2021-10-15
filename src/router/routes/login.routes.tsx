@@ -7,8 +7,9 @@ const loginRoutes:AppRoute[] = [
         path:'/',
         exact: true,
         component:lazy(()=>import('./../../pages/login/Login')),
-        icon:()=><h1>icon</h1>,
-        isPrivate:false
+        icon:<h1>icon</h1>,
+        isPrivate:false,
+        noShowInMenu:true
     },
 ];
 

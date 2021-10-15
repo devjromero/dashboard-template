@@ -5,9 +5,9 @@ declare type AppRoute = {
     path: string,
     exact: boolean,
     component: LazyExoticComponent<FC<any>>,
-    icon?: React.FunctionComponent,
+    icon?: any,
     isPrivate: boolean,
-
+    noShowInMenu?: boolean
 }
 
 export default AppRoute;

@@ -11,6 +11,7 @@ module.exports = {
         extend: {
             width: ['responsive', 'hover'],
             display: ['group-hover'],
+            justifyContent:['hover']
         },
     },
     plugins: [require('@tailwindcss/forms')],

@@ -1,13 +1,14 @@
 import AppRoute from "../../domain/types/AppRoute.type";
 import {lazy} from "react";
+import {CgProfile} from "react-icons/all";
 
 const profileRoutes:AppRoute[] = [
     {
-        name:'Profile',
+        name:'menu.profile', // will translate
         path:'/',
         exact: true,
         component:lazy(()=>import('./../../pages/profile/Profile')),
-        icon:()=><h1>icon</h1>,
+        icon: <CgProfile size={20}/>,
         isPrivate:true
     },
 ];

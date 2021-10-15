@@ -2,7 +2,6 @@ import {PropsWithChildren} from "react";
 import CommonPropsType from "./CommonProps.type";
 import {LeftNavbar} from "./leftNavbar/LeftNavbar";
 import {TopNavbar} from "./topNavbar/TopNavbar";
-import {Modal} from "../modal/Modal";
 
 export const DashboardContainerPresenter: React.FC<CommonPropsType> = (props: PropsWithChildren<CommonPropsType>) => {
     return (
