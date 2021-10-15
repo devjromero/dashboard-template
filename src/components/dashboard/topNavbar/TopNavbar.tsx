@@ -1,7 +1,7 @@
 import CommonPropsType from "../CommonProps.type";
 import {AiOutlineShoppingCart, GiHamburgerMenu} from "react-icons/all";
 import {UserMenu} from "../userMenu/UserMenu";
-
+import LanguageSwitcher from './../../languageSwitcher/LanguageSwitcher'
 export const TopNavbar: React.FC<CommonPropsType> = props => {
     return (
         <div className={'w-full p-4 sticky top-0'}>
@@ -12,18 +12,21 @@ export const TopNavbar: React.FC<CommonPropsType> = props => {
                         className   = {'cursor-pointer'}
                     />
                 </div>
-                <div className={'flex flex-1 flex-row-reverse gap-2 bg-yellow-400'}>
+                <div className={'flex flex-1 flex-row-reverse gap-2'}>
                     <Item>
                         <UserMenu/>
                     </Item>
-                    <div className={'bg-red-100'}>
-                        <div className={'h-full w-auto flex items-center'}>
-                            <AiOutlineShoppingCart
-                                size={20}
-                                className={'cursor-pointer bg-red-400 block'}
-                            />
-                        </div>
-                    </div>
+                    <Item>
+                        <AiOutlineShoppingCart
+                            size={20}
+                            className={'cursor-pointer block'}
+                        />
+                    </Item>
+
+                    <Item>
+
+                    </Item>
+
                 </div>
             </div>
         </div>
@@ -32,8 +35,10 @@ export const TopNavbar: React.FC<CommonPropsType> = props => {
 
 const Item:React.FC<any> = (props) => {
     return (
-        <div className={'h-full w-auto flex items-center bg-blue-200'}>
-            {props.children}
+        <div className={''}>
+            <div className={'h-full w-auto flex items-center'}>
+                {props.children}
+            </div>
         </div>
     );
 }

@@ -7,6 +7,7 @@ const DashboardContainer:React.FC<any> = (props: PropsWithChildren<any>) => {
         <DashboardContainerPresenter
             isOpenLeftNavbar={isOpenLeftNavbar}
             setIsOpenLeftNavbar={setIsOpenLeftNavbar}
+            {...props}
         />
     );
 }
